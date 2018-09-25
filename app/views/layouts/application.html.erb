@@ -8,7 +8,32 @@
 </head>
 <body>
 
-<%= yield %>
+<% flash.each do |name, msg| %>
 
+<ul>
+
+<li><%= msg %></li>
+
+</ul>
+
+<% end %>
+
+Code added to display errors in the new.html.erb template under app/views/articles folder:
+
+<% if @article.errors.any? %>
+
+<h2>The following errors prevented the article from getting created</h2>
+
+<ul>
+
+<% @article.errors.full_messages.each do |msg| %>
+
+<li><%= msg %></li>
+
+<% end %>
+
+</ul>
+
+<% end %>
 </body>
 </html>
