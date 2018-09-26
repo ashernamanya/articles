@@ -1,0 +1,2 @@
+lsof -wni tcp:3000 
+kill -9 3366  these are steps for killing processes in ruby. 
