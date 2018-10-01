@@ -53,11 +53,20 @@ end
 
 end
 
+def edit 
+ @article=Article.find(params[:id])
+ if @article.edit(article_params)
+  flash[:notice ]= "Article Succesully has been edited"
+  redirect_to_article(@article)
+else 
+ render 'update'
+end 
+end 
 
 private
 
 def article_params
 
-params.require(:article).permit(:tittle, :description)
+params.require(:article).permit(:tittle, :description, :reason)
 
 end
